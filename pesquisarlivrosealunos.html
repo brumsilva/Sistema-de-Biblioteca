@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Central</title>
-    <!-- Link de utilização do FrameWork Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Bootstrap icones -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-    <!-- Css Interno -->
-    <link rel="stylesheet" href="/public/css/estilo.css">    
-    <link href="public/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-</head>
-<body>
-    <section class="container">
+<section class="container">
         <!-- NOVO MODAL -->
-        <button type="submit" class="btn btn-dark ml-2 mr-2" id="mostrarLista">Logar</button>
         <div class="modal" tabindex="-1" id="mostra">
             <div class="modal-dialog" style="background-color: rgb(209, 210, 211);">
               <div class="modal-content">
@@ -57,77 +24,91 @@
               </div>
             </div>
           </div>
-        <div class="row">
-            <div class="col">
-                <div class="row mt-5">                    
-                    <div class="col-6">
-                        <h1>Lista de Livros</h1>                        
-                    </div>
-                    <div class="col-6 d-flex">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2  ml-5" type="search" placeholder="Pesquisar livro" aria-label="Search">
-                            <a href="/pesquisarLivros" class="btn btn-outline-primary">Pesquisar livros</a>
-                          </form>
-                        
-                    </div>
-                </div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th>Autor</th>
-                            <th>Ano de Publicação</th>
-                            <th>Editora</th>
-                            <th>Gênero</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% if(livro_nome == 0){ %>
-                            <tr>
-                                <td colspan="6" class="alert alert-warning">Nenhum livro encontrado</td>
-                            </tr>   
-                        <%}else{
-                            livro_item.forEach(function(livro){ %>
-                            <tr>
-                                <td> <%= livro.titulo %> </td>
-                                <td> <%= livro.nomeAutor %> </td>
-                                <td> <%= livro.anoPublicacao %> </td>
-                                <td> <%= livro.editora %> </td>
-                                <td> <%= livro.genero %> </td>                                
-                            </tr>
-                        <% })} %>
-                    </tbody>
-                </table>
-            </div>
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                  <div class="row">
+                      <div class="col d-flex flex-wrap align-items-center">
+                        <div class="col">
+                            <h1>Lista de Livros</h1>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2  ml-5" type="search" placeholder="Pesquisar livro" aria-label="Search">
+                                <a href="/pesquisarLivros" class="btn btn-outline-primary">Pesquisar livros</a>
+                              </form>
+                        </div>
+                      </div>
+                  </div>
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>
+                              <th>Título</th>
+                              <th>Autor</th>
+                              <th>Ano de Publicação</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% if(livro_nome == 0){ %>
+                              <tr>
+                                  <td colspan="6" class="alert alert-danger text-center">Nenhum livro encontrado</td>
+                              </tr>
+                          <%}else{
+                              livro_item.forEach(function(livro){ %>
+                              <tr>
+                                  <td> <%= livro.titulo %> </td>
+                                  <td> <%= livro.nomeAutor %> </td>
+                                  <td> <%= livro.anoPublicacao %> </td>
+                              </tr>
+                          <% })} %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                  <div class="row">
+                      <div class="col d-flex flex-wrap align-items-center">
+                        <div class="col">
+                            <h1>Lista de Alunos</h1>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2  ml-5" type="search" placeholder="Pesquisar livro" aria-label="Search">
+                                <a href="/pesquisarLivros" class="btn btn-outline-primary">Pesquisar livros</a>
+                              </form>
+                        </div>
+                      </div>
+                  </div>
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>
+                              <th>Nome do Aluno</th>
+                              <th>Matrícula</th>
+                              <th>Curso</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% if(livro_nome == 0){ %>
+                              <tr>
+                                  <td colspan="6" class="alert alert-danger text-center">Nenhum livro encontrado</td>
+                              </tr>
+                          <%}else{
+                              livro_item.forEach(function(livro){ %>
+                              <tr>
+                                  <td> <%= livro.nomeAluno %> </td>
+                                  <td> <%= livro.matrícula %> </td>
+                                  <td> <%= livro.curso %> </td>
+                              </tr>
+                          <% })} %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
         </div>
     </section>
-
-
-<!-- Footer -->
-<div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted">&copy; 2021. Todos os Direitos reservados</p>
-  
-      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <i class="bi bi-bookmark-check-fill" style=" color: #ccc; font-size: 32px;"></i>
-        <span class="logo-name2">Biblioteca Central</span>
-      </a>
-  
-      <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Dashboard</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Livros</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Logar</a></li>
-      </ul>
-    </footer>
-  </div>
-<!-- Scripts - Bootstrap, JQuery e CloudFlare -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<!-- scripts para Javascript Interno -->
-<script src="public/js/bootstrap.bundle.min.js"></script>
-<script src="public/js/validação.js"></script>
-<script src="public/js/search.js"></script>   
-</body>
-</html>
