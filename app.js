@@ -19,12 +19,20 @@ const livros = mongoose.model('Cadastro de Livros', {
   anoPublicacao: Number,
 })
 
-// CRIANDO UM MODELO  PARA INCLUSÃO DE ALUNOS NO BANCO DE DADOS
-const alunos = mongoose.model('Cadastro de Alunos', {
+// CRIANDO UM MODELO PARA CADASTRAR OS USUARIOS NO BANCO DE DADOS
+const cadastro = mongoose.model('cadastro', {
   nome: String,
+  sobrenome: String,
   email: String,
-  senha: String,
+  senha: String
 })
+
+// CRIANDO UM MODELO  PARA INCLUSÃO DE ALUNOS NO BANCO DE DADOS
+// const alunos = mongoose.model('Cadastro de Alunos', {
+//   nome: String,
+//   email: String,
+//   senha: String,
+// })
 
 
 app.set('views', __dirname + '/views')
